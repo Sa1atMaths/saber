@@ -43,6 +43,7 @@ class VerticalNavbar extends HookWidget {
               onPressed: () => expanded.value = !expanded.value,
               child: AdaptiveIcon(
                 icon: expanded.value ? Icons.chevron_left : Icons.chevron_right,
+                size: 18, // Added to reduce size from 24
                 cupertinoIcon: expanded.value
                     ? CupertinoIcons.chevron_left
                     : CupertinoIcons.chevron_right,
@@ -51,6 +52,9 @@ class VerticalNavbar extends HookWidget {
           ),
           IntrinsicHeight(
             child: NavigationRail(
+              // Add these inside the NavigationRail widget near line 51:
+unselectedIconTheme: const IconThemeData(size: 20),
+selectedIconTheme: const IconThemeData(size: 20),
               destinations: destinations,
               selectedIndex: selectedIndex,
               backgroundColor: backgroundColor,
